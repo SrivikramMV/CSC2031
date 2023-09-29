@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 
-from Practical2.users.forms import RegisterForm
+from Practical3.users.forms import RegisterForm
 
 users_blueprint = Blueprint('users', __name__, template_folder='templates')
 

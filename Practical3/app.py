@@ -2,6 +2,7 @@ import os
 
 from dotenv import load_dotenv
 from flask import Flask, render_template
+
 from main.views import main_blueprint
 from blog.views import blog_blueprint
 from users.views import users_blueprint
