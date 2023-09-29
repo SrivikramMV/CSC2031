@@ -5,11 +5,18 @@ from flask import Flask, render_template
 from main.views import main_blueprint
 from blog.views import blog_blueprint
 from users.views import users_blueprint
+from flask_sqlalchemy import SQLAlchemy
 
 load_dotenv()
 
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('DRAGON')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
+app.config['SQLALCHEMY_ECHO'] = os.getenv('SQLALCHEMY_ECHO') == 'True'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = os.getenv('SQLALCHEMY_TRACK_MODIFICATIONS') == 'True'
+
+db = SQLAlchemy(app)
 
 app.register_blueprint(blog_blueprint)
 app.register_blueprint(users_blueprint)
